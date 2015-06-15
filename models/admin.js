@@ -16,6 +16,33 @@ var Admin = mongoose.model('admin', admin);
 var sha1 = function(input){
     return crypto.createHash('sha1').update(input.toString()).digest('hex');
 };
+function _getdate()
+{
+currentdate = new Date(); 
+datetime = currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+return datetime; 
+}
+Admin.find({'email': 'admin@gmail.com'}).exec(function(err, user){
+	if(!user.length) {
+		var admin = {
+			fullname: 'Admin',
+			username:'AdminMaster',
+			email: 'admin@gmail.com',
+			password: sha1('admin'),
+			createdate:_getdate()
+		};
+		admin = new Admin(admin);
+		admin.save(function(err, result){
+			Admin.update({'_id':result._id},{DT_RowId:result._id},function(){});
+			if(err) throw "Can not create account";
+		});
+	}
+});
 function _login(u, callback) {
 	u.password = sha1(u.password);
 	Admin.findOne({'email': u.email, 'password': u.password }, function(err, result) {	
