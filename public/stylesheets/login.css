@@ -1,0 +1,28 @@
+
+      html, body {
+        background-color: #eee;
+      }
+      body {
+        padding-top: 40px; 
+      }
+      .content{
+        width: 400px;
+        margin: 0 auto;
+        margin-top: 100px;
+      }
+      .content .logo{
+        background: url("/images/logo.png");
+        width: 172px;
+        height: 50px;
+        margin-bottom: 20px;
+        margin-left: 110px;
+        cursor: hand;
+      }
+      .content .forgot-password a{
+        text-decoration: none;
+        float: right;
+        cursor: hand;
+      }
+      .my-error-class{
+        color:#F05C5C;
+      }

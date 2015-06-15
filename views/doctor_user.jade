@@ -1,0 +1,29 @@
+extends layoutdoc
+
+block content
+	script(src="/js/doctor.js")
+	script(src="/js/import_user.js")
+	script(src="/dist/cpexcel.js")
+	script(src="/dist/ods.js")
+	script(src="/dist/xlsx.full.min.js")
+	script(src="/dist/jszip.js")
+	script(src="/dist/shim.js")
+	p Nhập file người chơi(file xlsx,xls)
+	input.btn.btn-default.xlfile(type="file",name="xlfile",id="xlf")
+	h3 Danh sách Bệnh Nhân
+	div.button-control
+		//- button.btn.btn-default(data-toggle="modal" data-target="#myModal" style="padding-left:10px;") New
+		//-button.btn.btn-default.edit(data-toggle="modal" data-target="#edit" style="padding-left:10px;") Edit
+		button.btn.btn-default.delete(id="button") Delete
+	table.table.table-hover.table-admin.display(cellspacing="0" width="100%")
+		thead
+			tr
+				th Họ tên
+				th Email
+				th Địa chỉ
+				th SĐT
+				th Ngày Sinh
+				th Giới tính
+				th CMND
+				th Tỉnh thành
+				th Ngày tạo

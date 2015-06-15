@@ -1,0 +1,66 @@
+extends layout
+
+block content
+	script(src="/js/account_admin.js")
+	h3 Danh sách Admin
+	div.button-control
+		button.btn.btn-default(data-toggle="modal" data-target="#myModal" style="padding-left:10px;") New
+		button.btn.btn-default.edit(data-toggle="modal" data-target="#edit" style="padding-left:10px;") Edit
+		button.btn.btn-default.delete(id="button") Delete
+	table.table.table-hover.table-admin.display(cellspacing="0" width="100%")
+		thead
+			tr
+				th Họ tên
+				th Username
+				th Email
+				th Ngày tạo
+	#myModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+		.modal-dialog
+			form#add.modal-content
+				.modal-header
+					h3.modal-title(style="text-align:center") Thêm Admin
+				.modal-body
+					.form-horizontal
+						.form-group
+							label.control-label.col-sm-3 Họ và tên
+							.col-sm-9
+								input.form-control(name="fullname" type="text" placeholder="Họ và tên")
+						.form-group
+							label.control-label.col-sm-3 Username
+							.col-sm-9
+								input.form-control(name="username" type="text" placeholder="Usename")
+						.form-group
+							label.control-label.col-sm-3 Email
+							.col-sm-9
+								input.form-control(name="email" type="text" placeholder="Email")
+						.form-group
+							label.control-label.col-sm-3 Mật khẩu
+							.col-sm-9
+								input.form-control(name="password" type="password" placeholder="Password")
+				.modal-footer
+						.form-group
+							input.btn.btn-primary( id="add-admin" type="submit" value="Lưu")
+							button.btn.btn-default(data-dismiss="modal") Thoát
+	#edit.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+		.modal-dialog
+			form#edit-validate.modal-content
+				.modal-header
+					h3.modal-title(style="text-align:center") Sửa Admin
+				.modal-body
+					.form-horizontal
+						.form-group
+							label.control-label.col-sm-3 Họ và tên
+							.col-sm-9
+								input.form-control(name="edit-fullname" type="text" placeholder="Họ và tên")
+						.form-group
+							label.control-label.col-sm-3 Username
+							.col-sm-9
+								input.form-control(name="edit-username" type="text" placeholder="Username")
+						.form-group
+							label.control-label.col-sm-3 Email
+							.col-sm-9
+								input.form-control(name="edit_email" type="text" placeholder="Email")
+				.modal-footer
+						.form-group
+							input.btn.btn-primary( id="edit-admin" type="submit" value="Lưu")
+							button.btn.btn-default(data-dismiss="modal") Thoát

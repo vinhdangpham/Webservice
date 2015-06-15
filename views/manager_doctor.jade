@@ -1,0 +1,125 @@
+extends layout
+
+block content
+	script(src="/js/manager_doctor.js")
+	script(src="/js/import_doctor.js")
+	script(src="/dist/cpexcel.js")
+	script(src="/dist/ods.js")
+	script(src="/dist/xlsx.full.min.js")
+	script(src="/dist/jszip.js")
+	script(src="/dist/shim.js")
+	p Nhập file bác sĩ(file xlsx,xls)
+	input.btn.btn-default.xlfile(type="file",name="xlfile",id="xlf")
+	h3 Danh sách bác sĩ
+	div.button-control
+		button.btn.btn-default(data-toggle="modal" data-target="#myModal" style="padding-left:10px;") New
+		button.btn.btn-default.edit(data-toggle="modal" data-target="#edit" style="padding-left:10px;") Edit
+		button.btn.btn-default.delete(id="button") Delete
+	table.table.table-hover.table-admin.display(cellspacing="0" width="100%")
+		thead
+			tr
+				th Họ và tên
+				th Khoa
+				th Ngày sinh
+				th Giới tính
+				th Địa chỉ
+				th Bằng cấp
+				th Kinh nghiệm
+				th Email
+				th Ngày tạo
+	#myModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+		.modal-dialog
+			.modal-content
+					.modal-header
+						h3.modal-title(style="text-align:center") Thêm thông tin bác sĩ
+					.modal-body
+						.form-horizontal
+							.form-group
+								label.control-label.col-sm-3 Họ và tên
+								.col-sm-9
+									input.form-control(name="fullname" type="text" placeholder="Họ và tên")
+							.form-group
+								label.control-label.col-sm-3 Khoa
+								.col-sm-9
+									input.form-control(name="department" type="text" placeholder="Khoa bác sĩ")
+							.form-group
+								label.control-label.col-sm-3 Ngày sinh
+								.col-sm-9
+									input.form-control( type="text" name="birthday" id="birthday")
+							.form-group
+								label.control-label.col-sm-3 Địa chỉ
+								.col-sm-9
+									input.form-control(name="address" type="text" placeholder="Địa chỉ")
+							.form-group
+								label.control-label.col-sm-3 Giới tính
+								.col-sm-9
+									select.form-control(name="gender")
+										option(selected="selected") Chọn giới tinh
+										option(value="Nam") Nam
+										option(value="Nữ") Nữ
+							.form-group
+								label.control-label.col-sm-3 Bằng cấp
+								.col-sm-9
+									textarea.form-control(name="certificate" rows="3")
+							.form-group
+								label.control-label.col-sm-3 Kinh nghiệm
+								.col-sm-9
+									textarea.form-control(name="experience" rows="3")
+							.form-group
+								label.control-label.col-sm-3 Email
+								.col-sm-9
+									input.form-control(name="email" type="text" placeholder="email")
+							.form-group
+								label.control-label.col-sm-3 Mật khẩu
+								.col-sm-9
+									input.form-control(name="password" type="password" placeholder="password")
+					.modal-footer
+							.form-group
+								input.btn.btn-primary(  type="submit" value="Lưu")
+								button.btn.btn-default(data-dismiss="modal") Thoát
+	#edit.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+		.modal-dialog
+			.modal-content
+				.modal-header
+					h3.modal-title(style="text-align:center") Sửa Thông tin bác sĩ
+				.modal-body
+					.form-horizontal
+						.form-group
+							label.control-label.col-sm-3 Họ và tên
+							.col-sm-9
+								input.form-control(name="edit-fullname" type="text" placeholder="Họ và tên")
+						.form-group
+							label.control-label.col-sm-3 Khoa
+							.col-sm-9
+								input.form-control(name="edit-department" type="text" placeholder="Khoa bác sĩ")
+						.form-group
+							label.control-label.col-sm-3 Ngày sinh
+							.col-sm-9
+								input.form-control(name="edit-birthday" id="edit-birthday" type="text")
+						.form-group
+							label.control-label.col-sm-3 Địa chỉ
+							.col-sm-9
+								input.form-control(name="edit-address" type="text" placeholder="Địa chỉ")
+						.form-group
+							label.control-label.col-sm-3 Giới tính
+							.col-sm-9
+								select.form-control(name="edit-gender")
+									option(selected="selected") Chọn giới tinh
+									option(value="Nam") Nam
+									option(value="Nữ") Nữ
+						.form-group
+							label.control-label.col-sm-3 Bằng cấp
+							.col-sm-9
+								textarea.form-control(name="edit-certificate" rows="3")
+						.form-group
+							label.control-label.col-sm-3 Kinh nghiệm
+							.col-sm-9
+								textarea.form-control(name="edit-experience" rows="3")
+						.form-group
+								label.control-label.col-sm-3 Email
+								.col-sm-9
+									input.form-control(name="edit-email" type="text" placeholder="email")							
+				.modal-footer
+						.form-group
+							input.btn.btn-primary( id="edit-admin" type="submit" value="Lưu")
+							button.btn.btn-default(data-dismiss="modal") Thoát

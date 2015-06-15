@@ -1,0 +1,77 @@
+doctype html
+html
+  head
+    title= title
+    script(type='text/javascript', src='/javascripts/jquery-2.1.3.min.js')
+    script(type='text/javascript', src='/javascripts/bootstrap.min.js')
+    script(type='text/javascript', src='/javascripts/sweetalert.min.js')
+    script(type='text/javascript', src='/javascripts/admin.js')
+    script(src='/javascripts/jquery.dataTables.min.js')
+    script(type="text/javascript" , src="/javascripts/jquery.validate.min.js")
+    script(type="text/javascript" , src="/javascripts/jquery-ui.min.js")
+    //-CSS
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome.css')
+    link(rel='stylesheet', href='/stylesheets/jquery.dataTables.min.css')
+    link(rel='stylesheet', href='/stylesheets/sb-admin-2.css')
+    link(rel='stylesheet', href='/stylesheets/sweetalert.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css')
+    //-Javascript 
+   
+  body 
+  nav.navbar.navbar-default.navbar-static-top(role='navigation', style='margin-bottom: 0')
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/') RegMedic Admin
+    .navbar-top-links.navbar-right
+      .dropdown(style="margin-right: 20px;margin-top: 20px;")
+        a.dropdown-toggle(data-toggle="dropdown" href="#" style="text-decoration:none")= name
+          i.fa.fa-user.fa-fw
+          i.fa.fa-caret-down
+        ul.dropdown-menu.dropdown-user
+          li
+            a.fa.fa-user.fa-fw(href="/manager/profile" style="paddint-right:20px;")     Hồ sơ
+          li
+            a.fa.fa-gear.fa-fw(href="/manager/change")    Đổi mật khẩu
+          li.divider
+          li
+            a.fa.fa-sign-out.fa-fw(href="/") Đăng xuất
+
+    .navbar-default.sidebar(role='navigation')
+ .navbar-default.sidebar(role='navigation')
+   .sidebar-nav.navbar-collapse
+     ul#side-menu.nav
+       li.sidebar-search
+          a.btn.btn-default(href="/" style="width:100%") Đăng xuất
+       li
+        a(href='/manager/index')
+         i.fa.fa-dashboard.fa-fw
+         |  Trang chủ
+       li
+        a(href='/manager/doctor')
+         i.fa.fa-stethoscope.fa-fw
+         |  Quản lý bác sĩ
+       li
+        a(href='/manager/account/user')
+         i.fa.fa-user.fa-fw
+         |  Quản lý bệnh nhân
+       li
+        a(href='/manager/exam')
+         i.fa.fa-clock-o.fa-fw
+         |  Quản lý lịch hẹn
+       li
+        a(href='/manager/account/admin')
+         i.fa.fa-drupal.fa-fw
+         |  Admin
+       li
+        a(href='/manager/about')
+         i.fa.fa-info-circle.fa-fw
+         |  About
+       span(style="display:none" id="id_admin")= id   
+  #page-wrapper
+   block content

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	script(src='/js/image.js')
+	table.table-add-image
+		tr
+			td.td-image
+				form(accept-charset="UTF-8" enctype="multipart/form-data" class="upload-image")
+					input(type="file" name="image" id="image")
+				.images
+			//- td
+			//- 	input.btn.btn-danger(value='save' name='save' id='save' type='button')
